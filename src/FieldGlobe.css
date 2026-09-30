@@ -1,0 +1,172 @@
+.fg-root {
+  width: 100%;
+  max-width: var(--size-550);
+  aspect-ratio: 550 / 520;
+  flex-shrink: 0;
+  isolation: isolate;
+  pointer-events: none;
+  user-select: none;
+}
+
+.fg-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.fg-float {
+  transform-box: view-box;
+  transform-origin: var(--size-278) var(--size-257);
+  animation: fg-drift var(--duration-site-18s) var(--easing-site-in-out)
+    infinite;
+}
+
+.fg-shadow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: fg-shadow-breathe var(--duration-site-18s)
+    var(--easing-site-in-out) infinite;
+}
+
+.fg-land {
+  stroke: var(--color-brand-primary-700);
+  stroke-width: var(--stroke-site-0-75);
+  stroke-opacity: var(--opacity-site-0-32);
+  stroke-linejoin: round;
+}
+
+.fg-graticule {
+  fill: none;
+  stroke: var(--color-brand-primary-800);
+  stroke-width: var(--stroke-site-0-8);
+  stroke-opacity: var(--opacity-site-0-28);
+  stroke-linecap: round;
+}
+
+.fg-equator {
+  stroke-width: var(--stroke-site-1);
+  stroke-opacity: var(--opacity-site-0-42);
+}
+
+.fg-orbit {
+  fill: none;
+  stroke-width: var(--stroke-site-1);
+  stroke-linecap: round;
+}
+
+.fg-orbit-back {
+  stroke: var(--color-brand-primary-600);
+  stroke-opacity: var(--opacity-site-0-24);
+}
+
+.fg-orbit-secondary {
+  stroke: var(--color-brand-secondary-500);
+  stroke-opacity: var(--opacity-35);
+  stroke-dasharray: 2 7;
+}
+
+.fg-orbit-front {
+  stroke-width: var(--stroke-site-1-15);
+}
+
+.fg-orbit-bead {
+  fill: var(--color-brand-primary-700);
+  stroke: var(--color-brand-secondary-400);
+  stroke-width: var(--stroke-site-1-5);
+}
+
+.fg-orbit-bead-lavender {
+  fill: var(--color-brand-secondary-400);
+  stroke: var(--color-brand-secondary-700);
+  stroke-width: var(--stroke-site-1);
+}
+
+.fg-field-arc {
+  fill: none;
+  stroke: var(--color-brand-primary-700);
+  stroke-width: var(--stroke-site-1);
+  stroke-opacity: var(--opacity-site-0-34);
+  stroke-dasharray: 2 5;
+  stroke-linecap: round;
+}
+
+.fg-location-halo {
+  fill: var(--paper);
+  fill-opacity: var(--opacity-site-0-16);
+  stroke: var(--color-brand-primary-800);
+  stroke-width: var(--stroke-site-0-85);
+  stroke-opacity: var(--opacity-site-0-42);
+}
+
+.fg-location-core {
+  fill: var(--color-brand-primary-800);
+  stroke: var(--color-brand-secondary-400);
+  stroke-width: var(--stroke-site-2-5);
+}
+
+.fg-location-lavender .fg-location-core {
+  fill: var(--color-brand-secondary-400);
+  stroke: var(--color-brand-primary-800);
+  stroke-width: var(--stroke-site-1-75);
+}
+
+.fg-rim {
+  stroke: var(--color-brand-primary-800);
+  stroke-opacity: var(--opacity-site-0-23);
+  stroke-width: var(--stroke-site-1);
+}
+
+.fg-rim-light {
+  stroke: var(--paper);
+  stroke-width: var(--stroke-site-1-5);
+  stroke-opacity: var(--opacity-site-0-55);
+  stroke-linecap: round;
+}
+
+.fg-satellite-ring {
+  stroke: var(--color-brand-primary-600);
+  stroke-width: var(--stroke-site-0-85);
+  stroke-opacity: var(--opacity-site-0-45);
+}
+
+.fg-satellite-dot {
+  fill: var(--color-brand-primary-600);
+}
+
+.fg-satellite-soft {
+  fill: var(--color-brand-secondary-400);
+  opacity: var(--opacity-site-0-75);
+}
+
+@keyframes fg-drift {
+  0%,
+  100% {
+    transform: translateY(var(--size-2)) rotate(-0.6deg);
+  }
+
+  50% {
+    transform: translateY(calc(-1 * var(--size-5))) rotate(0.6deg);
+  }
+}
+
+@keyframes fg-shadow-breathe {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: var(--opacity-80);
+  }
+
+  50% {
+    transform: scaleX(0.94);
+    opacity: var(--opacity-60);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fg-float,
+  .fg-shadow {
+    animation: none;
+    transform: none;
+  }
+}
