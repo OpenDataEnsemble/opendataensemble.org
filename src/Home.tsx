@@ -3,6 +3,7 @@
 import { useRef, useState, type KeyboardEvent } from 'react';
 import FieldGlobe from './FieldGlobe';
 import Demo from './Demo';
+import EventTeaser from './EventTeaser';
 import { BrandMark, Icon, type IconName } from './Icons';
 import LinkList from './LinkList';
 import { DOCS, GITHUB } from './site';
@@ -441,7 +442,7 @@ export default function Home() {
         >
           <div className="container purpose-inner">
             <p>
-              For people doing
+              For people doing{' '}
               <br />
               <strong>work that matters.</strong>
             </p>
@@ -481,7 +482,7 @@ export default function Home() {
               </h2>
             </div>
             <p>
-              From a first observation to a bigger picture.
+              From a first observation to a bigger picture.{' '}
               <br />
               Connected tools that work beautifully together,
               <br className="desktop-break" /> and leave you free to work your
@@ -618,13 +619,14 @@ export default function Home() {
               </h2>
             </div>
             <p>
-              Who we are, how to take part,
+              Who we are, how to take part,{' '}
               <br />
               and where to find us.
             </p>
           </div>
           <LinkList items={moreLinks} />
         </section>
+        <EventTeaser />
         <section
           className="cta-section"
           id="get-started"

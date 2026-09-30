@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import EventFeature from '../../src/EventFeature';
+import { events } from '../../src/events';
 import { Icon } from '../../src/Icons';
 import LinkList from '../../src/LinkList';
 import { DOCS, FORUM, GITHUB } from '../../src/site';
@@ -102,6 +104,34 @@ export default function CommunityPage() {
 
       <section
         className="container section-space page-section"
+        aria-labelledby="events-title"
+      >
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">EVENTS WE’VE HELD</span>
+            <h2 id="events-title">
+              Where the ensemble
+              <br />
+              <span className="serif-word">meets in person.</span>
+            </h2>
+          </div>
+          <p>
+            Community days bring people together{' '}
+            <br />
+            to learn the tools and build side by side.
+          </p>
+        </div>
+        <ol className="event-list">
+          {events.map((event) => (
+            <li key={event.href}>
+              <EventFeature event={event} />
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section
+        className="container section-space page-section"
         aria-labelledby="help-title"
       >
         <div className="section-heading">
@@ -114,7 +144,7 @@ export default function CommunityPage() {
             </h2>
           </div>
           <p>
-            Code, docs, testing, or conversation.
+            Code, docs, testing, or conversation.{' '}
             <br />
             Every contribution keeps the ensemble moving.
           </p>

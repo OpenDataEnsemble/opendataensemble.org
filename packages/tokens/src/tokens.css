@@ -777,6 +777,17 @@
   --z-index-site-2: 2;
   --z-index-site-20: 20;
 
+  /* Photo framing */
+  --aspect-ratio-photo-cinema: 21 / 9;
+  --aspect-ratio-photo-wide: 16 / 10;
+  --aspect-ratio-photo: 3 / 2;
+  --aspect-ratio-photo-portrait: 4 / 5;
+  --aspect-ratio-photo-square: 1;
+  --rotate-site-stamp: -8deg;
+  --rotate-site-print: 2deg;
+  --rotate-site-accent: 3deg;
+  --scale-site-photo-hover: 1.03;
+
   /* Repeated in @media rules because custom properties cannot be used there. */
   --breakpoint-site-wide: 1500px;
   --breakpoint-site-desktop: 1150px;

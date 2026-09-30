@@ -2,6 +2,7 @@ export const DOCS = 'https://opendataensemble.org/docs/';
 export const GITHUB = 'https://github.com/OpenDataEnsemble/ode';
 export const FORUM = 'https://forum.opendataensemble.org/';
 export const SECURITY_EMAIL = 'security@opendataensemble.org';
+export const GROUNDBREAKER = 'https://groundbreaker.org/';
 
 export const pageLinks = [
   { href: '/about', label: 'About' },

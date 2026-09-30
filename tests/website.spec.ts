@@ -158,6 +158,49 @@ test('top navigation and footer reach every page', async ({ page }) => {
   await expect(page).toHaveURL(/\/#platform$/);
 });
 
+test('community page links to the Kampala 2026 event story', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/community');
+  const events = page.getByRole('region', { name: /Where the ensemble/ });
+  await expect(events).toContainText('ODE Community Days');
+  await expect(events).toContainText('Groundbreaker Talents');
+  await events.getByRole('link', { name: 'Read the event story' }).click();
+  await expect(page).toHaveURL(/\/community\/kampala-2026$/);
+  await expect(page).toHaveTitle('ODE Community Days, Kampala 2026 · ODE');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    /ODE Community Days\s*Kampala 2026\./,
+  );
+  await expect(
+    page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link', { name: 'Community', exact: true }),
+  ).toHaveAttribute('aria-current', 'true');
+  await expect(
+    page.getByRole('link', { name: /Visit Groundbreaker Talents/ }),
+  ).toHaveAttribute('href', 'https://groundbreaker.org/');
+
+  await page.evaluate(async () => {
+    for (let y = 0; y < document.body.scrollHeight; y += 400) {
+      window.scrollTo(0, y);
+      await new Promise((done) => setTimeout(done, 30));
+    }
+  });
+  await page.waitForLoadState('networkidle');
+  const broken = await page.locator('main img').evaluateAll((images) =>
+    images
+      .filter((image) => {
+        const img = image as HTMLImageElement;
+        return !img.complete || img.naturalWidth === 0 || !img.alt;
+      })
+      .map((image) => (image as HTMLImageElement).currentSrc),
+  );
+  expect(broken).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
 test('mobile navigation and demo are usable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
@@ -188,7 +231,11 @@ test('mobile navigation and demo are usable', async ({ page }) => {
 test('layouts do not overflow at phone, tablet, or desktop widths', async ({
   page,
 }) => {
-  for (const path of ['/', ...pages.map((entry) => entry.path)]) {
+  for (const path of [
+    '/',
+    ...pages.map((entry) => entry.path),
+    '/community/kampala-2026',
+  ]) {
     for (const width of [320, 375, 390, 680, 768, 1024, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(path);

@@ -84,7 +84,7 @@ export default function AboutPage() {
             </h2>
           </div>
           <p>
-            Each tool does one job well.
+            Each tool does one job well.{' '}
             <br />
             Together they take an observation from the field to understanding.
           </p>
