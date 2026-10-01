@@ -788,6 +788,20 @@
   --rotate-site-accent: 3deg;
   --scale-site-photo-hover: 1.03;
 
+  /* Photo wall and viewer */
+  --rotate-site-wall: 6deg;
+  --rotate-site-wall-lean: 12deg;
+  --scale-site-wall-lift: 1.07;
+  --scale-site-viewer-zoom: 2.5;
+  --scale-site-viewer-enter: 0.98;
+  --easing-site-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --perspective-site-wall: 700px;
+  --duration-site-slideshow: 4.5s;
+  --color-site-white-25: color-mix(in srgb, var(--color-neutral-white) 25%, transparent);
+  --color-site-white-60: color-mix(in srgb, var(--color-neutral-white) 60%, transparent);
+  --color-site-white-80: color-mix(in srgb, var(--color-neutral-white) 80%, transparent);
+  --color-site-black-45: color-mix(in srgb, var(--color-neutral-black) 45%, transparent);
+
   /* Repeated in @media rules because custom properties cannot be used there. */
   --breakpoint-site-wide: 1500px;
   --breakpoint-site-desktop: 1150px;

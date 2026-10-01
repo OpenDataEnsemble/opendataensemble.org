@@ -201,6 +201,71 @@ test('community page links to the Kampala 2026 event story', async ({
   expect(errors).toEqual([]);
 });
 
+test('community photo wall filters, switches layout, and opens the viewer', async ({
+  page,
+}) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/community#photo-wall');
+  const wall = page.getByRole('region', { name: /The whole day/ });
+  const prints = wall.locator('.wall-prints > li');
+
+  await expect(prints).toHaveCount(12);
+  await wall.getByRole('button', { name: /Show all 55 photos/ }).click();
+  await expect(prints).toHaveCount(55);
+
+  await wall.getByRole('button', { name: /The ODE Lab/ }).click();
+  await expect(prints).toHaveCount(12);
+  await expect(
+    wall.getByRole('button', { name: /The ODE Lab/ }),
+  ).toHaveAttribute('aria-pressed', 'true');
+
+  await wall.getByRole('button', { name: 'Contact sheet' }).click();
+  await expect(wall.getByRole('button', { name: 'Shuffle' })).toBeDisabled();
+  await expect(prints.first()).toContainText('07');
+
+  const opener = wall.getByRole('button', { name: /^Open photo 1 of 12/ });
+  await opener.click();
+  const viewer = page.getByRole('dialog', { name: /ODE Community Days/ });
+  await expect(viewer).toBeVisible();
+  await expect(viewer.locator('.viewer-count')).toHaveText('01 / 12');
+  await page.keyboard.press('ArrowRight');
+  await expect(viewer.locator('.viewer-count')).toHaveText('02 / 12');
+  await page.keyboard.press('End');
+  await expect(viewer.locator('.viewer-count')).toHaveText('12 / 12');
+  await page.keyboard.press('ArrowRight');
+  await expect(viewer.locator('.viewer-count')).toHaveText('01 / 12');
+  await viewer.getByRole('button', { name: /^Photo 5:/ }).click();
+  await expect(viewer.locator('.viewer-count')).toHaveText('05 / 12');
+  await viewer.getByRole('button', { name: 'Zoom' }).click();
+  await expect(viewer.locator('.viewer-stage')).toHaveClass(/is-zoomed/);
+  await expect
+    .poll(() =>
+      viewer
+        .locator('.viewer-image')
+        .evaluate((image) => (image as HTMLImageElement).currentSrc),
+    )
+    .toContain('q=90');
+
+  await page.keyboard.press('Escape');
+  await expect(viewer).not.toBeVisible();
+  await expect(opener).toBeFocused();
+  expect(errors).toEqual([]);
+});
+
+test('event gallery photos open in the viewer', async ({ page }) => {
+  await page.goto('/community/kampala-2026');
+  const gallery = page.getByRole('region', { name: /Moments/ });
+  await gallery.getByRole('button', { name: /^Open photo 3 of 11/ }).click();
+  const viewer = page.getByRole('dialog');
+  await expect(viewer.locator('.viewer-count')).toHaveText('03 / 11');
+  await viewer.getByRole('button', { name: 'Close photo viewer' }).click();
+  await expect(viewer).not.toBeVisible();
+  await expect(
+    gallery.getByRole('link', { name: /See all 55 photos/ }),
+  ).toHaveAttribute('href', '/community#photo-wall');
+});
+
 test('mobile navigation and demo are usable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');

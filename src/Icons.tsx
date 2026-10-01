@@ -9,6 +9,50 @@ const paths = {
   menu: <path d="M4 7h16M4 12h16M4 17h16" />,
   check: <path d="m5 12 4 4L19 6" />,
   play: <path d="m9 5 11 7-11 7Z" />,
+  pause: <path d="M8 5v14M16 5v14" />,
+  zoomIn: (
+    <>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-4-4M11 8v6M8 11h6" />
+    </>
+  ),
+  zoomOut: (
+    <>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-4-4M8 11h6" />
+    </>
+  ),
+  shuffle: (
+    <path d="M3 7h3c5 0 7 10 12 10h3m-3-3 3 3-3 3M3 17h3c2 0 3.5-1.6 4.7-3.5M13.3 9.5C14.5 8.1 16 7 18 7h3m-3-3 3 3-3 3" />
+  ),
+  scatter: (
+    <>
+      <rect
+        x="2.5"
+        y="5"
+        width="11"
+        height="9"
+        rx="1"
+        transform="rotate(-8 8 9.5)"
+      />
+      <rect
+        x="10"
+        y="10"
+        width="11"
+        height="9"
+        rx="1"
+        transform="rotate(7 15.5 14.5)"
+      />
+    </>
+  ),
+  grid: (
+    <>
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+    </>
+  ),
   offline: (
     <>
       <path d="m3 3 18 18M2 8a17 17 0 0 1 3-2m4-2a17 17 0 0 1 13 4M5 12a11 11 0 0 1 4-2m5 0a11 11 0 0 1 5 2M8.5 15.5a5 5 0 0 1 7 0" />
@@ -118,11 +162,5 @@ export function Icon({
 }
 
 export function BrandMark({ className }: { className?: string }) {
-  return (
-    <img
-      src="/brand/ode-mark.png"
-      alt=""
-      className={className}
-    />
-  );
+  return <img src="/brand/ode-mark.png" alt="" className={className} />;
 }
