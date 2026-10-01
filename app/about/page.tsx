@@ -7,7 +7,7 @@ import { DOCS, GITHUB, faqs } from '../../src/site';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Open Data Ensemble is a family of open-source, offline-first tools for collecting, syncing, and working with field data.',
+    'Open Data Ensemble is a collection of open-source and offline-first tools for collecting, syncing and working with field data.',
 };
 
 const tools = [
@@ -15,7 +15,7 @@ const tools = [
     label: 'COLLECT',
     title: 'Formulus',
     description:
-      'The mobile field companion. Custom forms and apps, photos, audio, and locations, offline by design.',
+      'The mobile companion mobile app. Custom forms and apps, photos, audio, and locations, offline by design.',
     href: 'https://opendataensemble.org/docs/reference/form-specifications',
     cta: 'Form specifications',
   },
@@ -31,7 +31,7 @@ const tools = [
     label: 'EXPLORE',
     title: 'ODE Desktop',
     description:
-      'Manage observations locally, and build and test your next custom app in the workbench.',
+      'Manage observations locally, build and test your next custom app in the workbench.',
     href: 'https://opendataensemble.org/docs/guides/ode-desktop-developer-mode',
     cta: 'Developer mode guide',
   },
@@ -39,7 +39,7 @@ const tools = [
     label: 'MANAGE',
     title: 'Web Portal and CLI',
     description:
-      'Manage app bundles, users, observations, and exports in the browser, or use the CLI to export data for your own analysis tools.',
+      'Manage App Bundles, Users, Observations, and Exports in the interractive browser, or use the CLI to export data for your own analysis tools.',
     href: `${GITHUB}/tree/main/synkronus-portal`,
     cta: 'See the portal',
   },
@@ -60,13 +60,14 @@ export default function AboutPage() {
         image="/brand/laptop.png"
       >
         <p className="page-lead">
-          Open Data Ensemble is a family of open-source tools for collecting
+          Open Data Ensemble (ODE - Pronounced as "Code") is a collection of open-source tools for collecting
           and synchronizing data. They share one public API, so your data can
           flow into the tools you already use.
+          O
         </p>
         <p className="page-text">
           ODE is made for people doing work that matters, in conservation,
-          public health, communities, and research, wherever the signal ends.
+          public health, communities, and research, and more importantly wherever the signal ends.
         </p>
       </PageIntro>
 
@@ -120,7 +121,7 @@ export default function AboutPage() {
                 Still in business.
               </h3>
               <p>
-                Remote trail or patchy connection, your work keeps moving.
+                Even when on a remote trail or with apatchy connection, your work keeps moving.
                 Collect now. Synchronize when you’re ready.
               </p>
               <span className="principle-tag">
@@ -153,7 +154,7 @@ export default function AboutPage() {
               </h3>
               <p>
                 Make a form. Build a custom app. Connect your tools. Open-source
-                foundations, with room for your ideas.
+                foundations, with lots of room for your ideas.
               </p>
               <span className="principle-tag">
                 NO BLACK BOXES. MORE POSSIBILITIES.
