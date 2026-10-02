@@ -17,6 +17,7 @@ html {
 body {
   margin: 0;
   min-width: var(--size-320);
+  padding-top: var(--size-98);
 }
 button,
 input,
@@ -96,9 +97,13 @@ p {
   transform: translateY(0);
 }
 .site-header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: var(--z-index-site-20);
   border-bottom: var(--border-width-thin) solid var(--line);
+  background: var(--paper);
 }
 .header-inner {
   display: flex;
@@ -2703,6 +2708,9 @@ h2,
 @media (max-width: 680px) {
   html {
     scroll-padding-top: var(--spacing-6);
+  }
+  body {
+    padding-top: var(--size-76);
   }
   .container {
     width: calc(100% - var(--spacing-10));
