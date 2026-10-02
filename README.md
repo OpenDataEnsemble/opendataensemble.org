@@ -1,6 +1,6 @@
 # ODE website
 
-A standalone marketing website for Open Data Ensemble. Built with React, TypeScript, Next.js, and pnpm; independent of the mobile, desktop, and portal applications.
+This is the official website for Open Data Ensemble (ODE). Built with React, TypeScript, Next.js, and pnpm; independent of the mobile, desktop, and portal components.
 
 ## Run locally
 
