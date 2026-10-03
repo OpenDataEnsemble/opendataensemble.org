@@ -5,6 +5,7 @@ import '@ode/tokens/css';
 import { themeColor } from '@ode/tokens';
 import '../src/styles.css';
 import '../src/FieldGlobe.css';
+import BackToTop from '../src/BackToTop';
 import SiteFooter from '../src/SiteFooter';
 import SiteHeader from '../src/SiteHeader';
 
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <BackToTop />
       </body>
     </html>
   );
