@@ -1,6 +1,6 @@
 # ODE website
 
-A standalone marketing website for Open Data Ensemble. Built with React, TypeScript, Next.js, and pnpm; independent of the mobile, desktop, and portal applications.
+This is the official website for Open Data Ensemble (ODE). Built with React, TypeScript, Next.js, and pnpm; independent of the mobile, desktop, and portal components.
 
 ## Run locally
 
@@ -51,12 +51,12 @@ Tests automatically start and stop a local preview if one isn't already running.
 
 ## Main files
 
-- `app/layout.tsx` — document metadata, fonts, and global styles
-- `app/page.tsx` — home route
-- `src/App.tsx` — page content, navigation, product tabs, FAQ, and calls to action
-- `src/styles.css` — design system, layouts, responsive styles, and demo styling
-- `src/FieldGlobe.tsx` / `src/FieldGlobe.css` — hero artwork and motion
-- `src/Demo.tsx` — sample collection and simulated synchronization
-- `src/Icons.tsx` — local SVG iconography and the website's ODE wordmark symbol
-- `scripts/preview.mjs` — time-limited local preview launcher
-- `tests/website.spec.ts` — browser smoke and interaction tests
+- `app/layout.tsx`: document metadata, fonts, and global styles
+- `app/page.tsx`: home route
+- `src/App.tsx`: page content, navigation, product tabs, FAQ, and calls to action
+- `src/styles.css`: design system, layouts, responsive styles, and demo styling
+- `src/FieldGlobe.tsx` / `src/FieldGlobe.css`: hero artwork and motion
+- `src/Demo.tsx`: sample collection and simulated synchronization
+- `src/Icons.tsx`: local SVG iconography and the website's ODE wordmark symbol
+- `scripts/preview.mjs`: time-limited local preview launcher
+- `tests/website.spec.ts`: browser smoke and interaction tests

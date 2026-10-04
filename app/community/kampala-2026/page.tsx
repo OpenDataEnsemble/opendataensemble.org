@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import EventGallery from '../../../src/EventGallery';
 import EventStamp from '../../../src/EventStamp';
 import { Icon } from '../../../src/Icons';
 import Photo from '../../../src/Photo';
-import { kampala2026 as event, kampalaPhotos as photos } from '../../../src/events';
+import {
+  kampala2026 as event,
+  kampalaPhotoCount,
+  kampalaPhotos as photos,
+} from '../../../src/events';
 import { FORUM } from '../../../src/site';
 
 export const metadata: Metadata = {
@@ -74,8 +79,8 @@ export default function Kampala2026Page() {
             </h1>
             <p className="page-lead">
               On {event.dateLabel}, we spent a day at the {event.venue} in
-              Kampala with students from {event.partner.name}: learning the
-              ODE tools, building in groups, and sharing what we made.
+              Kampala with students from {event.partner.name}: learning the ODE
+              tools, building in groups, and sharing what we made.
             </p>
           </div>
           <dl className="event-facts event-facts-hero">
@@ -175,8 +180,7 @@ export default function Kampala2026Page() {
             </h2>
           </div>
           <p>
-            The words on our banner{' '}
-            <br />
+            The words on our banner <br />
             turned out to be the plan.
           </p>
         </div>
@@ -247,22 +251,21 @@ export default function Kampala2026Page() {
             </h2>
           </div>
           <p>
-            Focus, laughter, and a lot of{' '}
-            <br />
+            Focus, laughter, and a lot of <br />
             phones held up to compare notes.
           </p>
         </div>
-        <ul className="event-gallery-grid">
-          {gallery.map((photo) => (
-            <li key={photo.alt}>
-              <Photo
-                photo={photo}
-                sizes="(max-width: 680px) 100vw, (max-width: 1150px) 50vw, 400px"
-                className="event-photo"
-              />
-            </li>
-          ))}
-        </ul>
+        <EventGallery
+          photos={gallery}
+          title={`${event.name}, ${event.edition}`}
+        />
+        <Link
+          className="inline-link page-section-link"
+          href="/community#photo-wall"
+        >
+          See all {kampalaPhotoCount} photos on the photo wall{' '}
+          <Icon name="arrow" size="var(--icon-size-site-17)" />
+        </Link>
       </section>
 
       <section className="event-close" aria-labelledby="close-title">
@@ -290,7 +293,8 @@ export default function Kampala2026Page() {
                 <Icon name="diagonal" size="var(--icon-size-site-18)" />
               </a>
               <Link className="inline-link" href="/contact">
-                Get in touch <Icon name="arrow" size="var(--icon-size-site-17)" />
+                Get in touch{' '}
+                <Icon name="arrow" size="var(--icon-size-site-17)" />
               </Link>
             </div>
           </div>

@@ -1,8 +1,14 @@
 import type { Metadata } from 'next';
 import EventFeature from '../../src/EventFeature';
-import { events } from '../../src/events';
+import {
+  events,
+  kampala2026,
+  kampalaChapters,
+  kampalaPhotoCount,
+} from '../../src/events';
 import { Icon } from '../../src/Icons';
 import LinkList from '../../src/LinkList';
+import PhotoWall from '../../src/PhotoWall';
 import { DOCS, FORUM, GITHUB } from '../../src/site';
 
 export const metadata: Metadata = {
@@ -96,8 +102,7 @@ export default function CommunityPage() {
             rel="noreferrer"
           >
             <Icon name="github" size="var(--icon-size-site-17)" /> Or take a
-            look under the hood{' '}
-            <Icon name="arrow" size="var(--icon-size-sm)" />
+            look under the hood <Icon name="arrow" size="var(--icon-size-sm)" />
           </a>
         </div>
       </section>
@@ -116,8 +121,7 @@ export default function CommunityPage() {
             </h2>
           </div>
           <p>
-            Community days bring people together{' '}
-            <br />
+            Community days bring people together <br />
             to learn the tools and build side by side.
           </p>
         </div>
@@ -128,6 +132,36 @@ export default function CommunityPage() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section
+        id="photo-wall"
+        className="wall-section"
+        aria-labelledby="wall-title"
+      >
+        <div className="container section-space">
+          <div className="section-heading wall-heading">
+            <div>
+              <span className="eyebrow">
+                THE PHOTO WALL · {kampala2026.edition.toUpperCase()}
+              </span>
+              <h2 id="wall-title">
+                The whole day,
+                <br />
+                <span className="serif-word">frame by frame.</span>
+              </h2>
+            </div>
+            <p>
+              {kampalaPhotoCount} moments from {kampala2026.name}. Pick a part
+              of the day, toss the prints around, or lay them out as a contact
+              sheet. Open any photo to see it full screen.
+            </p>
+          </div>
+          <PhotoWall
+            chapters={kampalaChapters}
+            title={`${kampala2026.name}, ${kampala2026.edition}`}
+          />
+        </div>
       </section>
 
       <section
@@ -144,8 +178,7 @@ export default function CommunityPage() {
             </h2>
           </div>
           <p>
-            Code, docs, testing, or conversation.{' '}
-            <br />
+            Code, docs, testing, or conversation. <br />
             Every contribution keeps the ensemble moving.
           </p>
         </div>
