@@ -4,6 +4,7 @@ import { useRef, useState, type KeyboardEvent } from 'react';
 import FieldGlobe from './FieldGlobe';
 import Demo from './Demo';
 import EventTeaser from './EventTeaser';
+import Testimonials from './Testimonials';
 import { BrandMark, Icon, type IconName } from './Icons';
 import LinkList from './LinkList';
 import { DOCS, GITHUB } from './site';
@@ -627,6 +628,7 @@ export default function Home() {
           <LinkList items={moreLinks} />
         </section>
         <EventTeaser />
+        <Testimonials />
         <section
           className="cta-section"
           id="get-started"
