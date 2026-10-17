@@ -15,7 +15,7 @@ const tools = [
     label: 'COLLECT',
     title: 'Formulus',
     description:
-      'The mobile companion mobile app. Custom forms and apps, photos, audio, and locations, offline by design.',
+      'The mobile app. Custom forms and apps, photos, audio, and locations, offline by design.',
     href: 'https://opendataensemble.org/docs/reference/form-specifications',
     cta: 'Form specifications',
   },
@@ -23,7 +23,7 @@ const tools = [
     label: 'SYNCHRONIZE',
     title: 'Synkronus',
     description:
-      'The connection between. One public API that brings observations and attachments together when a connection returns.',
+      'The server in the middle. One public API that brings observations and attachments together when a connection returns.',
     href: 'https://opendataensemble.org/docs/getting-started/architecture-overview',
     cta: 'Architecture overview',
   },
@@ -39,7 +39,7 @@ const tools = [
     label: 'MANAGE',
     title: 'Web Portal and CLI',
     description:
-      'Manage App Bundles, Users, Observations, and Exports in the interractive browser, or use the CLI to export data for your own analysis tools.',
+      'Manage app bundles, users, observations, and exports in the browser, or use the CLI to export data for your own analysis tools.',
     href: `${GITHUB}/tree/main/synkronus-portal`,
     cta: 'See the portal',
   },
@@ -60,14 +60,13 @@ export default function AboutPage() {
         image="/brand/laptop.png"
       >
         <p className="page-lead">
-          Open Data Ensemble (ODE - Pronounced as "Code") is a collection of open-source tools for collecting
-          and synchronizing data. They share one public API, so your data can
-          flow into the tools you already use.
-          O
+          Open Data Ensemble (ODE, pronounced like “code”) is a set of
+          open-source tools for collecting and synchronizing field data. They
+          share one public API, so data can move into tools you already use.
         </p>
         <p className="page-text">
-          ODE is made for people doing work that matters, in conservation,
-          public health, communities, and research, and more importantly wherever the signal ends.
+          People use it in conservation, public health, community work, and
+          research, including places where the signal drops.
         </p>
       </PageIntro>
 
@@ -85,8 +84,7 @@ export default function AboutPage() {
             </h2>
           </div>
           <p>
-            Each tool does one job well.{' '}
-            <br />
+            Each tool does one job well. <br />
             Together they take an observation from the field to understanding.
           </p>
         </div>
@@ -97,13 +95,11 @@ export default function AboutPage() {
         <div className="container section-space">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">
-                LESS IN THE WAY. MORE IN YOUR HANDS.
-              </span>
+              <span className="eyebrow">WHY THESE TOOLS EXIST</span>
               <h2 id="why-title">
-                Built for the field.
+                Built for
                 <br />
-                <span className="serif-word">Not the other way around.</span>
+                <span className="serif-word">field work.</span>
               </h2>
             </div>
             <span className="why-asterisk" aria-hidden="true">
@@ -118,24 +114,22 @@ export default function AboutPage() {
               <h3>
                 No signal?
                 <br />
-                Still in business.
+                Keep collecting.
               </h3>
               <p>
-                Even when on a remote trail or with apatchy connection, your work keeps moving.
+                On a remote trail or a patchy connection, work still moves.
                 Collect now. Synchronize when you’re ready.
               </p>
-              <span className="principle-tag">
-                OFFLINE IS A FIRST-CLASS FEATURE
-              </span>
+              <span className="principle-tag">OFFLINE BY DEFAULT</span>
             </article>
             <article className="principle">
               <div className="principle-icon">
                 <Icon name="lock" size="var(--icon-size-site-27)" />
               </div>
               <h3>
-                Your data.
+                You host
                 <br />
-                Your home for it.
+                the data.
               </h3>
               <p>
                 Self-host your infrastructure and keep a local copy. Data should
@@ -148,17 +142,15 @@ export default function AboutPage() {
                 <Icon name="code" size="var(--icon-size-site-29)" />
               </div>
               <h3>
-                Open by nature.
+                Open source.
                 <br />
-                Flexible by design.
+                Yours to change.
               </h3>
               <p>
-                Make a form. Build a custom app. Connect your tools. Open-source
-                foundations, with lots of room for your ideas.
+                Make a form, build a custom app, or connect tools you already
+                have. The code is public.
               </p>
-              <span className="principle-tag">
-                NO BLACK BOXES. MORE POSSIBILITIES.
-              </span>
+              <span className="principle-tag">NO BLACK BOXES</span>
             </article>
           </div>
         </div>
@@ -169,14 +161,19 @@ export default function AboutPage() {
         aria-labelledby="faq-title"
       >
         <div className="faq-heading">
-          <span className="eyebrow">A FEW GOOD QUESTIONS</span>
+          <span className="eyebrow">QUESTIONS</span>
           <h2 id="faq-title">
-            Glad you
+            A few things
             <br />
-            <span className="serif-word">asked.</span>
+            <span className="serif-word">people ask.</span>
           </h2>
-          <a className="inline-link" href={DOCS} target="_blank" rel="noreferrer">
-            Dig into the docs{' '}
+          <a
+            className="inline-link"
+            href={DOCS}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Read the docs{' '}
             <Icon name="diagonal" size="var(--icon-size-site-17)" />
           </a>
         </div>

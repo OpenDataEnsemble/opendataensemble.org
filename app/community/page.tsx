@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { asset } from '../../src/asset';
 import EventFeature from '../../src/EventFeature';
 import {
   events,
@@ -14,7 +15,7 @@ import { DOCS, FORUM, GITHUB } from '../../src/site';
 export const metadata: Metadata = {
   title: 'Community',
   description:
-    'ODE is a young, open-source project. Write code, improve the docs, test the apps, or help others on the forum.',
+    'Write code, improve the docs, test the apps, or help on the forum.',
 };
 
 const waysToHelp = [
@@ -61,9 +62,13 @@ export default function CommunityPage() {
       >
         <div className="community-art" aria-hidden="true">
           <div className="community-art-caption">
-            MANY PERSPECTIVES. SHARED POSSIBILITY.
+            ODE COMMUNITY DAYS · KAMPALA
           </div>
-          <img className="ensemble-cast" src="/brand/ensemble.png" alt="" />
+          <img
+            className="ensemble-cast"
+            src={asset('/brand/ensemble.png')}
+            alt=""
+          />
           <div className="community-art-bottom">
             <span>OPEN BY NATURE</span>
             <Icon name="diagonal" size="var(--icon-size-site-18)" />
@@ -71,7 +76,7 @@ export default function CommunityPage() {
         </div>
         <div className="community-copy">
           <span className="eyebrow">
-            <span className="status-dot" /> THERE’S ROOM FOR YOU HERE
+            <span className="status-dot" /> COMMUNITY
           </span>
           <h1 id="page-title" className="page-title">
             Good things happen
@@ -79,12 +84,12 @@ export default function CommunityPage() {
             when we <span className="serif-word">ensemble.</span>
           </h1>
           <p>
-            We’re a growing, open-source project with a simple belief: better
-            tools come from more perspectives.
+            ODE is open source. The tools get better when more people use them,
+            break them, and help fix them.
           </p>
           <p>
-            Fieldworker, developer, researcher, designer, or just curious: you
-            don’t need to have all the answers to make a difference here.
+            If you collect data, write code, or care about the docs, there is
+            something to do.
           </p>
           <a
             className="button button-dark"
@@ -92,7 +97,7 @@ export default function CommunityPage() {
             target="_blank"
             rel="noreferrer"
           >
-            Join the conversation{' '}
+            Open the forum{' '}
             <Icon name="diagonal" size="var(--icon-size-site-18)" />
           </a>
           <a
@@ -101,8 +106,8 @@ export default function CommunityPage() {
             target="_blank"
             rel="noreferrer"
           >
-            <Icon name="github" size="var(--icon-size-site-17)" /> Or take a
-            look under the hood <Icon name="arrow" size="var(--icon-size-sm)" />
+            <Icon name="github" size="var(--icon-size-site-17)" /> Or read the
+            source <Icon name="arrow" size="var(--icon-size-sm)" />
           </a>
         </div>
       </section>
@@ -179,7 +184,7 @@ export default function CommunityPage() {
           </div>
           <p>
             Code, docs, testing, or conversation. <br />
-            Every contribution keeps the ensemble moving.
+            All of it helps.
           </p>
         </div>
         <LinkList items={waysToHelp} />

@@ -15,9 +15,9 @@ export default defineConfig({
     trace: 'retain-on-failure',
   },
   webServer: {
-    command: 'node scripts/preview.mjs --serve',
+    command: 'pnpm build && node scripts/preview.mjs --serve',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI,
-    timeout: 15000,
+    timeout: 180000,
   },
 });

@@ -11,7 +11,7 @@ export default function SiteFooter() {
         <div className="footer-top">
           <div>
             <Brand light />
-            <p>Open data. Shared possibility.</p>
+            <p>Open-source field data tools.</p>
           </div>
           <div className="footer-links">
             <div>
@@ -19,8 +19,7 @@ export default function SiteFooter() {
               <Link href="/#platform">The platform</Link>
               <Link href="/about">About</Link>
               <DemoButton>
-                Try the demo{' '}
-                <Icon name="diagonal" size="var(--icon-size-xs)" />
+                Try the demo <Icon name="diagonal" size="var(--icon-size-xs)" />
               </DemoButton>
             </div>
             <div>
@@ -29,8 +28,7 @@ export default function SiteFooter() {
                 Documentation
               </a>
               <a href={GITHUB} target="_blank" rel="noreferrer">
-                Source code{' '}
-                <Icon name="diagonal" size="var(--icon-size-xs)" />
+                Source code <Icon name="diagonal" size="var(--icon-size-xs)" />
               </a>
               <a href={`${GITHUB}/releases`} target="_blank" rel="noreferrer">
                 Releases
@@ -57,7 +55,7 @@ export default function SiteFooter() {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Open Data Ensemble</span>
           <span>
-            Made for a world that isn’t always online.{' '}
+            Built for places that aren’t always online.{' '}
             <Icon name="globe" size="var(--icon-size-site-14)" />
           </span>
           <a

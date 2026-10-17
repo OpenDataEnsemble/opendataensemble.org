@@ -11,16 +11,16 @@ import SiteHeader from '../src/SiteHeader';
 
 export const metadata: Metadata = {
   title: {
-    default: 'ODE — Good data. Real impact. Anywhere.',
+    default: 'ODE · Open Data Ensemble',
     template: '%s · ODE',
   },
   description:
-    'Good data. Real impact. Anywhere. Open Data Ensemble is the open-source, offline-first toolkit for collecting, syncing, and working with field data.',
+    'Open-source tools for collecting and syncing field data when the network is unreliable. Formulus on the phone, Synkronus to bring observations together.',
   icons: { icon: '/brand/ode-mark.png' },
   openGraph: {
-    title: 'ODE — Good data. Real impact. Anywhere.',
+    title: 'ODE · Open Data Ensemble',
     description:
-      "An open-source ensemble of tools for a world that isn't always online. Collect in the field. Sync on your terms. Make your data matter.",
+      'Collect observations offline, sync them when a connection returns, and keep the data on infrastructure you control.',
     type: 'website',
   },
 };

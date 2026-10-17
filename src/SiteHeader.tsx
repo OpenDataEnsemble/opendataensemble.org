@@ -9,7 +9,7 @@ import { DOCS, GITHUB, pageLinks } from './site';
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = (usePathname() || '/').replace(/\/$/, '') || '/';
 
   return (
     <header className="site-header">

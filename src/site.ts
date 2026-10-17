@@ -12,23 +12,23 @@ export const pageLinks = [
 
 export const faqs = [
   {
-    question: 'What exactly is Open Data Ensemble?',
+    question: 'What is Open Data Ensemble?',
     answer:
-      'ODE is a family of open-source tools for collecting and synchronizing data. Formulus is the mobile field companion, Synkronus connects your devices, and ODE Desktop, the Portal, and the CLI help you manage your work. They share one public API, so your data can flow into the tools you already use.',
+      'ODE is a set of open-source tools for collecting and synchronizing field data. Formulus is the mobile app, Synkronus is the server that connects your devices, and ODE Desktop, the Portal, and the CLI are for managing the work. They share one public API, so data can move into tools you already use.',
   },
   {
     question: 'Does it really work without internet?',
     answer:
-      'Yes. Formulus is offline-first: forms and custom app bundles run on your device, and observations and attachments are stored locally. You need a connection for initial setup, downloading bundles, and synchronizing, but not for everyday field collection once you’re set up.',
+      'Yes. Formulus is offline-first: forms and custom app bundles run on the device, and observations and attachments are stored locally. You need a connection for initial setup, downloading bundles, and synchronizing, but not for everyday field collection once you’re set up.',
   },
   {
     question: 'Can I host it myself?',
     answer:
-      'Yes. You can deploy Synkronus on your own infrastructure using Docker and connect the ODE clients to your server. You are responsible for your deployment, access controls, backups, and hosting costs. The documentation walks you through the architecture and setup.',
+      'Yes. You can deploy Synkronus on your own infrastructure with Docker and point the ODE clients at that server. You are responsible for the deployment, access controls, backups, and hosting costs. The documentation covers the architecture and setup.',
   },
   {
     question: 'Can I build my own forms and apps?',
     answer:
-      'Absolutely. Define forms with JSON Schema and JSON Forms, or build a custom HTML, CSS, and JavaScript app bundle. Formulus provides a bridge for observation storage, attachments, and synchronization. ODE Desktop includes a workbench for local development.',
+      'Yes. Define forms with JSON Schema and JSON Forms, or build a custom HTML, CSS, and JavaScript app bundle. Formulus stores observations, attachments, and handles synchronization. ODE Desktop includes a workbench for local development.',
   },
 ];
