@@ -51,20 +51,19 @@ export default function ContactPage() {
         eyebrow="CONTACT"
         title={
           <>
-            Let’s talk.
+            How to
             <br />
-            <span className="serif-word">We’re listening.</span>
+            <span className="serif-word">reach us.</span>
           </>
         }
         image="/brand/bird.png"
       >
         <p className="page-lead">
-          ODE is built in the open, so most conversations happen in the open
-          too. Pick the channel that fits and we’ll meet you there.
+          Questions belong on the forum. Bugs and patches go on GitHub. Security
+          reports come in by email.
         </p>
         <p className="page-text">
-          Questions go to the forum. Issues are for bugs and concrete change
-          requests.
+          Search existing issues before opening a new one.
         </p>
       </PageIntro>
 

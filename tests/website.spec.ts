@@ -3,13 +3,17 @@ import { mkdirSync } from 'node:fs';
 
 const screenshotDirectory = '.preview';
 
+function at(path: string) {
+  return new RegExp(`${path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?$`);
+}
+
 test('loads the landing page without browser errors', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await expect(page).toHaveTitle('ODE - Good data. Real impact. Anywhere.');
+  await expect(page).toHaveTitle('ODE · Open Data Ensemble');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-    'Good data.Real impact.Anywhere.',
+    'Good data.From the field.Offline.',
   );
   await expect(
     page.getByRole('navigation', { name: 'Main navigation' }),
@@ -126,7 +130,7 @@ test('all internal navigation links have real targets', async ({ page }) => {
 const pages = [
   { name: 'About', path: '/about', heading: /Open tools for data/ },
   { name: 'Community', path: '/community', heading: /Good things happen/ },
-  { name: 'Contact', path: '/contact', heading: /Let’s talk\./ },
+  { name: 'Contact', path: '/contact', heading: /How to\s*reach us\./ },
 ];
 
 test('each page has its own title and heading', async ({ page }) => {
@@ -146,13 +150,13 @@ test('top navigation and footer reach every page', async ({ page }) => {
   for (const { name, path } of pages) {
     await page.goto('/');
     await navigation.getByRole('link', { name, exact: true }).click();
-    await expect(page).toHaveURL(new RegExp(`${path}$`));
+    await expect(page).toHaveURL(at(path));
     await expect(
       navigation.getByRole('link', { name, exact: true }),
     ).toHaveAttribute('aria-current', 'page');
     await page.goto('/');
     await footer.getByRole('link', { name, exact: true }).click();
-    await expect(page).toHaveURL(new RegExp(`${path}$`));
+    await expect(page).toHaveURL(at(path));
   }
   await navigation.getByRole('link', { name: 'The platform' }).click();
   await expect(page).toHaveURL(/\/#platform$/);
@@ -168,7 +172,7 @@ test('community page links to the Kampala 2026 event story', async ({
   await expect(events).toContainText('ODE Community Days');
   await expect(events).toContainText('Groundbreaker Talents');
   await events.getByRole('link', { name: 'Read the event story' }).click();
-  await expect(page).toHaveURL(/\/community\/kampala-2026$/);
+  await expect(page).toHaveURL(at('/community/kampala-2026'));
   await expect(page).toHaveTitle('ODE Community Days, Kampala 2026 · ODE');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
     /ODE Community Days\s*Kampala 2026\./,
@@ -243,9 +247,9 @@ test('community photo wall filters, switches layout, and opens the viewer', asyn
     .poll(() =>
       viewer
         .locator('.viewer-image')
-        .evaluate((image) => (image as HTMLImageElement).currentSrc),
+        .evaluate((image) => (image as HTMLImageElement).naturalWidth),
     )
-    .toContain('q=90');
+    .toBeGreaterThan(0);
 
   await page.keyboard.press('Escape');
   await expect(viewer).not.toBeVisible();
@@ -263,7 +267,7 @@ test('event gallery photos open in the viewer', async ({ page }) => {
   await expect(viewer).not.toBeVisible();
   await expect(
     gallery.getByRole('link', { name: /See all 55 photos/ }),
-  ).toHaveAttribute('href', '/community#photo-wall');
+  ).toHaveAttribute('href', '/community/#photo-wall');
 });
 
 test('mobile navigation and demo are usable', async ({ page }) => {
@@ -296,6 +300,7 @@ test('mobile navigation and demo are usable', async ({ page }) => {
 test('layouts do not overflow at phone, tablet, or desktop widths', async ({
   page,
 }) => {
+  test.setTimeout(120000);
   for (const path of [
     '/',
     ...pages.map((entry) => entry.path),

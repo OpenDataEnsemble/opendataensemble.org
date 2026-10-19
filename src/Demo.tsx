@@ -54,7 +54,7 @@ export default function Demo({ onClose }: { onClose: () => void }) {
     >
       <div className="demo-header">
         <span className="eyebrow">
-          <span className="status-dot" /> THE OFFLINE-FIRST EXPERIENCE
+          <span className="status-dot" /> SAMPLE FIELD OBSERVATION
         </span>
         <button
           className="icon-button"
@@ -71,17 +71,17 @@ export default function Demo({ onClose }: { onClose: () => void }) {
           </span>
           <h2 id="demo-title">
             {stage === 'collect'
-              ? 'Go off the grid.'
+              ? 'You’re offline.'
               : stage === 'synced'
-                ? 'Back in harmony.'
+                ? 'Synced.'
                 : 'No signal. No problem.'}
           </h2>
           <p>
             {stage === 'collect'
-              ? 'Imagine you’re in the field, miles from a connection. Your work doesn’t have to wait.'
+              ? 'This walkthrough runs in the browser. In Formulus, the same steps happen on the phone with no network.'
               : stage === 'synced'
-                ? 'Your observation is ready for the next step. That’s the idea behind the ensemble.'
-                : 'Your sample observation is queued in this demo. In Formulus, observations are saved on your device until you’re ready to sync.'}
+                ? 'In the real app, Synkronus would take it from here.'
+                : 'The sample observation is queued in this demo. Formulus keeps observations on the device until you sync.'}
           </p>
         </div>
         <div className="demo-app">
@@ -156,10 +156,10 @@ export default function Demo({ onClose }: { onClose: () => void }) {
               </span>
               <h3>
                 {stage === 'synced'
-                  ? 'One observation. Connected.'
+                  ? 'Sample observation synced.'
                   : stage === 'syncing'
-                    ? 'Bringing it together…'
-                    : 'Saved. Ready when you are.'}
+                    ? 'Syncing the sample…'
+                    : 'Saved on this device.'}
               </h3>
               <dl className="observation-summary">
                 <div>
@@ -203,8 +203,8 @@ export default function Demo({ onClose }: { onClose: () => void }) {
           )}
         </div>
         <p className="demo-disclaimer">
-          Interactive concept demo, not a live Formulus session. Nothing is
-          stored or sent to a server.
+          This is a demo, not a live Formulus session. Nothing is stored or sent
+          to a server.
         </p>
       </div>
     </dialog>

@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
-    "start": "next start --hostname 127.0.0.1",
-    "preview": "next start --hostname 127.0.0.1 --port 4173",
+    "start": "node scripts/preview.mjs --serve --port 3000",
+    "preview": "node scripts/preview.mjs --serve --port 4173",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",

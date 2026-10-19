@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import { asset } from './asset';
 
 const paths = {
   arrow: <path d="M4 12h15m-6-6 6 6-6 6" />,
@@ -162,5 +163,7 @@ export function Icon({
 }
 
 export function BrandMark({ className }: { className?: string }) {
-  return <img src="/brand/ode-mark.png" alt="" className={className} />;
+  return (
+    <img src={asset('/brand/ode-mark.png')} alt="" className={className} />
+  );
 }

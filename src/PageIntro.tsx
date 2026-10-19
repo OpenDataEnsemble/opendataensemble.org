@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { asset } from './asset';
 
 export default function PageIntro({
   eyebrow,
@@ -22,7 +23,7 @@ export default function PageIntro({
         </h1>
         {children}
       </div>
-      <img className="page-intro-art" src={image} alt="" />
+      <img className="page-intro-art" src={asset(image)} alt="" />
     </section>
   );
 }
