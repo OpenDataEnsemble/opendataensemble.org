@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   transpilePackages: ['@ode/tokens'],
   images: {
     unoptimized: true,
+    qualities: [75, 90],
   },
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,

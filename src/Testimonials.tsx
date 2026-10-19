@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { asset } from './asset';
 import { Icon } from './Icons';
 
 interface Testimonial {
@@ -13,6 +14,11 @@ interface Testimonial {
 }
 
 const DEFAULT_AVATAR = '/brand/avatar.png';
+
+function mediaSrc(url: string) {
+  if (url.startsWith('data:') || /^https?:\/\//.test(url)) return url;
+  return asset(url);
+}
 
 const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
@@ -232,13 +238,13 @@ export default function Testimonials() {
                   </div>
                   <div className="testimonial-footer">
                     <img
-                      src={testimonial.avatarUrl || DEFAULT_AVATAR}
+                      src={mediaSrc(testimonial.avatarUrl || DEFAULT_AVATAR)}
                       alt=""
                       className="testimonial-avatar"
                       loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.src = DEFAULT_AVATAR;
+                        target.src = mediaSrc(DEFAULT_AVATAR);
                       }}
                     />
                     <div className="testimonial-author">
@@ -430,7 +436,7 @@ function TestimonialForm({ onClose, onSubmit }: TestimonialFormProps) {
               <label htmlFor="photo" className="photo-upload-label">
                 <div className="photo-upload-preview">
                   <img
-                    src={photoPreview || DEFAULT_AVATAR}
+                    src={photoPreview || asset(DEFAULT_AVATAR)}
                     alt="Profile preview"
                   />
                 </div>
